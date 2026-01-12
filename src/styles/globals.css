@@ -33,7 +33,8 @@ input[type="number"] {
   border-width: 0;
 }
 
-.sr-only:focus:not(.sr-only) {
+/* Skip link reveal on focus */
+.focus\:not-sr-only:focus {
   position: static;
   width: auto;
   height: auto;
@@ -64,8 +65,8 @@ label {
   color: #e4e4e7;
 }
 
-/* Ensure buttons have sufficient touch target size */
-button {
+/* Ensure primary action buttons have sufficient touch target size */
+button:not([class*="h-"], [class*="w-"], [class*="min-h-"], [class*="min-w-"]) {
   min-height: 44px;
   min-width: 44px;
 }

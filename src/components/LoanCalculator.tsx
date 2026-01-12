@@ -52,7 +52,7 @@ export function LoanCalculator() {
         {/* Input Section */}
         <section className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6" aria-labelledby="input-section-heading">
           <h2 id="input-section-heading" className="sr-only">Loan Parameters</h2>
-          <form className="grid gap-6 md:grid-cols-3">
+          <form className="grid gap-6 md:grid-cols-3" onSubmit={(e) => e.preventDefault()}>
             <div>
               <label htmlFor="loan-amount" className="mb-2 block text-sm font-medium text-zinc-300">
                 Loan Amount

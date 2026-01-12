@@ -20,7 +20,7 @@ export function AmortizationTable({ schedule, hasExtraPayments }: AmortizationTa
       </div>
 
       <div className="mt-4 overflow-x-auto">
-        <table className="w-full text-sm" role="table">
+        <table className="w-full text-sm" role="table" id="amortization-table">
           <caption className="sr-only">
             Loan amortization schedule showing monthly payment breakdown including principal, interest, and remaining balance
           </caption>
