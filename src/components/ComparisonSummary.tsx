@@ -28,35 +28,35 @@ export function ComparisonSummary({
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-lg bg-zinc-900/50 p-4">
-          <p className="text-sm text-zinc-400">Interest Saved</p>
-          <p className="mt-1 text-2xl font-bold text-emerald-400">
+          <p className="text-sm text-zinc-300">Interest Saved</p>
+          <p className="mt-1 text-2xl font-bold text-zinc-100" aria-label={`Interest saved: ${formatCurrency(interestSaved)}`}>
             {formatCurrency(interestSaved)}
           </p>
         </div>
 
         <div className="rounded-lg bg-zinc-900/50 p-4">
-          <p className="text-sm text-zinc-400">Time Saved</p>
-          <p className="mt-1 text-2xl font-bold text-emerald-400">
+          <p className="text-sm text-zinc-300">Time Saved</p>
+          <p className="mt-1 text-2xl font-bold text-zinc-100" aria-label={`Time saved: ${timeString}`}>
             {timeString}
           </p>
         </div>
 
         <div className="rounded-lg bg-zinc-900/50 p-4">
-          <p className="text-sm text-zinc-400">New Payoff Time</p>
-          <p className="mt-1 text-2xl font-bold text-zinc-100">
+          <p className="text-sm text-zinc-300">New Payoff Time</p>
+          <p className="mt-1 text-2xl font-bold text-zinc-100" aria-label={`New payoff time: ${Math.ceil(withExtraSchedule.actualMonths / 12)} years`}>
             {Math.ceil(withExtraSchedule.actualMonths / 12)} years
           </p>
-          <p className="text-xs text-zinc-500">
+          <p className="text-xs text-zinc-400">
             ({withExtraSchedule.actualMonths} months)
           </p>
         </div>
 
         <div className="rounded-lg bg-zinc-900/50 p-4">
-          <p className="text-sm text-zinc-400">New Total Payment</p>
-          <p className="mt-1 text-2xl font-bold text-zinc-100">
+          <p className="text-sm text-zinc-300">New Total Payment</p>
+          <p className="mt-1 text-2xl font-bold text-zinc-100" aria-label={`New total payment: ${formatCurrency(withExtraSchedule.totalPayment)}`}>
             {formatCurrency(withExtraSchedule.totalPayment)}
           </p>
-          <p className="text-xs text-zinc-500">
+          <p className="text-xs text-zinc-400">
             vs {formatCurrency(baseSchedule.totalPayment)} original
           </p>
         </div>
