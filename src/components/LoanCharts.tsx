@@ -66,9 +66,9 @@ export function LoanCharts({ baseSchedule, withExtraSchedule, hasExtraPayments }
   return (
     <div className="space-y-6">
       {/* Balance Over Time */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
-        <h3 className="mb-4 text-lg font-semibold text-zinc-100">Balance Over Time</h3>
-        <div className="h-80">
+      <section className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6" aria-labelledby="balance-chart-heading">
+        <h3 id="balance-chart-heading" className="mb-4 text-lg font-semibold text-zinc-100">Balance Over Time</h3>
+        <div className="h-80" role="img" aria-label="Line chart showing loan balance decreasing over time in months">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={balanceData}>
               <defs>
@@ -124,22 +124,22 @@ export function LoanCharts({ baseSchedule, withExtraSchedule, hasExtraPayments }
         {hasExtraPayments && (
           <div className="mt-4 flex justify-center gap-6 text-sm">
             <div className="flex items-center gap-2">
-              <div className="h-3 w-3 rounded-full" style={{ backgroundColor: COLORS.balance }} />
-              <span className="text-zinc-400">Without Extra Payments</span>
+              <div className="h-3 w-3 rounded-full" style={{ backgroundColor: COLORS.balance }} aria-hidden="true" />
+              <span className="text-zinc-300">Without Extra Payments</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="h-3 w-3 rounded-full" style={{ backgroundColor: COLORS.balanceWithExtra }} />
-              <span className="text-zinc-400">With Extra Payments</span>
+              <div className="h-3 w-3 rounded-full" style={{ backgroundColor: COLORS.balanceWithExtra }} aria-hidden="true" />
+              <span className="text-zinc-300">With Extra Payments</span>
             </div>
           </div>
         )}
-      </div>
+      </section>
 
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Payment Breakdown Pie Chart */}
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
-          <h3 className="mb-4 text-lg font-semibold text-zinc-100">Payment Breakdown</h3>
-          <div className="h-64">
+        <section className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6" aria-labelledby="pie-chart-heading">
+          <h3 id="pie-chart-heading" className="mb-4 text-lg font-semibold text-zinc-100">Payment Breakdown</h3>
+          <div className="h-64" role="img" aria-label={`Pie chart showing payment breakdown: Principal ${formatCurrency(principal)}, Interest ${formatCurrency(baseSchedule.totalInterest)}`}>
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -170,21 +170,21 @@ export function LoanCharts({ baseSchedule, withExtraSchedule, hasExtraPayments }
           </div>
           <div className="mt-2 flex justify-center gap-6 text-sm">
             <div className="flex items-center gap-2">
-              <div className="h-3 w-3 rounded-full" style={{ backgroundColor: COLORS.principal }} />
-              <span className="text-zinc-400">Principal: {formatCurrency(principal)}</span>
+              <div className="h-3 w-3 rounded-full" style={{ backgroundColor: COLORS.principal }} aria-hidden="true" />
+              <span className="text-zinc-300">Principal: {formatCurrency(principal)}</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="h-3 w-3 rounded-full" style={{ backgroundColor: COLORS.interest }} />
-              <span className="text-zinc-400">Interest: {formatCurrency(baseSchedule.totalInterest)}</span>
+              <div className="h-3 w-3 rounded-full" style={{ backgroundColor: COLORS.interest }} aria-hidden="true" />
+              <span className="text-zinc-300">Interest: {formatCurrency(baseSchedule.totalInterest)}</span>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Comparison Bar Chart */}
         {hasExtraPayments && (
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
-            <h3 className="mb-4 text-lg font-semibold text-zinc-100">Payment Comparison</h3>
-            <div className="h-64">
+          <section className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6" aria-labelledby="comparison-chart-heading">
+            <h3 id="comparison-chart-heading" className="mb-4 text-lg font-semibold text-zinc-100">Payment Comparison</h3>
+            <div className="h-64" role="img" aria-label="Bar chart comparing total payments and interest with and without extra payments">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={comparisonData} layout="vertical">
                   <CartesianGrid strokeDasharray="3 3" stroke="#3f3f46" />
@@ -210,7 +210,7 @@ export function LoanCharts({ baseSchedule, withExtraSchedule, hasExtraPayments }
                 </BarChart>
               </ResponsiveContainer>
             </div>
-          </div>
+          </section>
         )}
       </div>
     </div>

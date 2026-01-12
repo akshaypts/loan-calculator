@@ -19,3 +19,87 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip link reveal on focus */
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Enhanced focus indicators for keyboard navigation */
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient color contrast */
+body {
+  background-color: #09090b;
+  color: #f4f4f5;
+}
+
+/* Improve text contrast for labels and descriptions */
+label {
+  color: #e4e4e7;
+}
+
+/* Ensure primary action buttons have sufficient touch target size */
+button:not([class*="h-"], [class*="w-"], [class*="min-h-"], [class*="min-w-"]) {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Improve focus visibility on interactive elements */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  input,
+  button,
+  select,
+  textarea {
+    border-width: 2px;
+  }
+}
